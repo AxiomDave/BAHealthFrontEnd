@@ -25,7 +25,38 @@ export default function ResultsPage() {
     useEffect(() => {
         if (!data) {
             router.push('/');
+            return;
         }
+
+        const sendEmail = async () => {
+            const emailSent = sessionStorage.getItem('emailSent');
+            const userEmail = sessionStorage.getItem('userEmail');
+
+            if (emailSent === 'true' || !userEmail) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/send-report', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: userEmail,
+                        result: data,
+                    }),
+                });
+
+                if (response.ok) {
+                    sessionStorage.setItem('emailSent', 'true');
+                }
+            } catch (error) {
+                console.error('Failed to send email report:', error);
+            }
+        };
+
+        sendEmail();
     }, [data, router]);
 
     if (!data) {

@@ -68,6 +68,8 @@ export const UploadSection = () => {
         try {
             const response = await analyzeStrategy(file);
             sessionStorage.setItem('analysisResult', JSON.stringify(response));
+            sessionStorage.setItem('userEmail', email);
+            sessionStorage.removeItem('emailSent');
             router.push('/results');
         } catch (err: unknown) {
             const apiError = err as ApiError;
@@ -170,11 +172,7 @@ export const UploadSection = () => {
                     </div>
 
                     <div className="text-center">
-                        <a
-                            href="/example-trades.csv"
-                            download="example-trades.csv"
-                            className="inline-flex items-center gap-2 text-sm text-blue-500 hover:text-blue-600 font-medium transition-colors"
-                        >
+                        <a href="/example-trades.csv" download="example-trades.csv" className="inline-flex items-center gap-2 text-sm text-blue-500 hover:text-blue-600 font-medium transition-colors">
                             <Download className="w-4 h-4" />
                             Download example file
                         </a>
