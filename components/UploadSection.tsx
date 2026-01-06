@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { Upload, Mail, ArrowRight, Shield, Zap, File } from 'lucide-react';
+import { Upload, Mail, ArrowRight, Shield, Zap, File, Download } from 'lucide-react';
 import { LoadingState } from './LoadingState';
 import { analyzeStrategy } from '@/lib/api-client';
 import { ApiError } from '@/types/api';
@@ -167,6 +167,17 @@ export const UploadSection = () => {
                                 </>
                             )}
                         </div>
+                    </div>
+
+                    <div className="text-center">
+                        <a
+                            href="/example-trades.csv"
+                            download="example-trades.csv"
+                            className="inline-flex items-center gap-2 text-sm text-blue-500 hover:text-blue-600 font-medium transition-colors"
+                        >
+                            <Download className="w-4 h-4" />
+                            Download example file
+                        </a>
                     </div>
 
                     <div className="relative group">
