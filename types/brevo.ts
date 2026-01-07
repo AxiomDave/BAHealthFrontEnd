@@ -2,6 +2,7 @@ export interface BrevoContact {
     email: string;
     attributes: {
         HEALTH_STATE: string;
+        LICENSE_PURCHASED: boolean;
         HEALTH_REASON_1?: string;
         HEALTH_REASON_2?: string;
         HEALTH_REASON_3?: string;
@@ -14,7 +15,7 @@ export interface BrevoContact {
 
 export interface BrevoCreateContactRequest {
     email: string;
-    attributes?: Record<string, string | number>;
+    attributes?: Record<string, string | number | boolean>;
     listIds?: number[];
     updateEnabled?: boolean;
 }

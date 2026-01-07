@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
             email: body.email,
             attributes: {
                 HEALTH_STATE: healthState,
+                LICENSE_PURCHASED: false,
                 ...reasonAttributes,
             },
             listIds: [parseInt(listId, 10)],
