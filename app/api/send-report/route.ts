@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createBrevoClient } from '@/lib/brevo-client';
-import { formatReasonsForEmail, validateEmail, sanitizeHealthState, truncateText } from '@/lib/email-utils';
+import { formatReasonsForBrevo, validateEmail, sanitizeHealthState } from '@/lib/email-utils';
 import { SendReportRequest, SendReportResponse } from '@/types/brevo';
 
 export async function POST(request: NextRequest) {
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
         }
 
         const healthState = sanitizeHealthState(body.result.health_state);
-        const healthReasons = truncateText(formatReasonsForEmail(body.result.reasons));
+        const reasonAttributes = formatReasonsForBrevo(body.result.reasons);
 
         const brevoClient = createBrevoClient();
 
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
             email: body.email,
             attributes: {
                 HEALTH_STATE: healthState,
-                HEALTH_REASONS: healthReasons,
+                ...reasonAttributes,
             },
             listIds: [parseInt(listId, 10)],
             updateEnabled: true,

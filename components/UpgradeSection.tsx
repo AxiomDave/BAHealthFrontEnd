@@ -49,7 +49,7 @@ export const UpgradeSection = () => {
 
                 <div className="text-center">
                     <Link
-                        href="https://buildalpha.com"
+                        href="https://www.buildalpha.com/strategy-health-score/"
                         className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2 group cursor-pointer"
                     >
                         Unlock Full Strategy & Portfolio Health

@@ -5,18 +5,22 @@ interface Reason {
     details: string;
 }
 
-export function formatReasonsForEmail(reasons: Reason[]): string {
+export function formatReasonsForBrevo(reasons: Reason[]): Record<string, string> {
     if (!reasons || reasons.length === 0) {
-        return 'No specific reasons identified.';
+        return {};
     }
 
-    return reasons
-        .filter((r) => r.code !== 'LIMITATION_TRADE_DATA_ONLY')
-        .map((r) => {
-            const title = formatReasonCode(r.code);
-            return `${title}: ${r.details}`;
-        })
-        .join('. \n');
+    const filteredReasons = reasons.filter((r) => r.code !== 'LIMITATION_TRADE_DATA_ONLY').slice(0, 5);
+
+    const attributes: Record<string, string> = {};
+
+    filteredReasons.forEach((reason, index) => {
+        const title = formatReasonCode(reason.code);
+        const fieldName = `HEALTH_REASON_${index + 1}`;
+        attributes[fieldName] = `${title}: ${reason.details}`;
+    });
+
+    return attributes;
 }
 
 export function validateEmail(email: string): boolean {

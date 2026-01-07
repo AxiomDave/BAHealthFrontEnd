@@ -2,7 +2,11 @@ export interface BrevoContact {
     email: string;
     attributes: {
         HEALTH_STATE: string;
-        HEALTH_REASONS: string;
+        HEALTH_REASON_1?: string;
+        HEALTH_REASON_2?: string;
+        HEALTH_REASON_3?: string;
+        HEALTH_REASON_4?: string;
+        HEALTH_REASON_5?: string;
     };
     listIds: number[];
     updateEnabled: boolean;

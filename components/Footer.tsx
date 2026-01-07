@@ -13,13 +13,13 @@ export const Footer = () => {
                     </div>
 
                     <nav className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm flex-wrap justify-center">
-                        <Link href="/privacy-policy" className="text-gray-600 hover:text-gray-800 transition-colors whitespace-nowrap">
+                        <Link href="https://www.buildalpha.com/privacypolicy" className="text-gray-600 hover:text-gray-800 transition-colors whitespace-nowrap">
                             Privacy Policy
                         </Link>
-                        <Link href="/terms-of-service" className="text-gray-600 hover:text-gray-800 transition-colors whitespace-nowrap">
+                        <Link href="https://www.buildalpha.com/terms-and-conditions/" className="text-gray-600 hover:text-gray-800 transition-colors whitespace-nowrap">
                             Terms of Service
                         </Link>
-                        <Link href="/contact" className="text-gray-600 hover:text-gray-800 transition-colors whitespace-nowrap">
+                        <Link href="https://www.buildalpha.com/contact/" className="text-gray-600 hover:text-gray-800 transition-colors whitespace-nowrap">
                             Contact
                         </Link>
                     </nav>
