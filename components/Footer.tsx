@@ -24,6 +24,12 @@ export const Footer = () => {
                         </Link>
                     </nav>
                 </div>
+
+                <div className="mt-6 pt-6 border-t border-gray-300">
+                    <p className="text-xs text-gray-500 text-center leading-relaxed max-w-4xl mx-auto">
+                        Build Alpha and Axiom Futures, LLC provide analytical software only and do not provide investment advice, recommendations, or guarantees. All trading decisions, risk management, and outcomes are the sole responsibility of the trader.
+                    </p>
+                </div>
             </div>
         </footer>
     );
