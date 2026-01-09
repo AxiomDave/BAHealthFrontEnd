@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
             attributes: {
                 HEALTH_STATE: healthState,
                 LICENSE_PURCHASED: false,
-                SEQUENCE_STARTED: true,
+                SEQUENCE_STARTED: false,
                 SEQUENCE_COMPLETED: false,
                 ...reasonAttributes,
             },
