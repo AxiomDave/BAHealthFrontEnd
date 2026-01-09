@@ -3,6 +3,7 @@ export interface BrevoContact {
     attributes: {
         HEALTH_STATE: string;
         LICENSE_PURCHASED: boolean;
+        SEQUENCE_STARTED: boolean;
         SEQUENCE_COMPLETED: boolean;
         HEALTH_REASON_1?: string;
         HEALTH_REASON_2?: string;
